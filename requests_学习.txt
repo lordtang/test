@@ -1,0 +1,64 @@
+再学requests
+
+1. r.url 
+属性：获取请求的url地址，可以查看请求的url参数是否正常拼接
+
+2. payload = {k:v,k:[v1,v2]}
+在get请求中v可以使一个列表
+
+3. r.content
+属性：拿到二进制文件，图片,视频等媒体文件
+
+4. r.text
+属性：拿到文本响应文件
+
+5. r.status_code
+属性：获取当前响应的状态码，常用来查看响应是否成功
+
+
+6. r.raw
+属性：获取套接字原始响应，但是注意：应该在get的请求参数里面添加stream=true
+
+7. r.rause_for_status()
+方法：当请求发生错误的时候回抛出错误信息,如果没有发生错误返回None
+
+8.r.headers
+属性：获取头部信息，http头部信息是大小写不敏感的，可以使用大写也可以使用小写访问
+
+
+9.r.cookies
+属性：获取cookies值
+发送cookies到服务器：
+	cookies = {k:v}
+	requests.get(url,cookies=cookies)
+
+10.timeout参数：
+设置超时等待，生产环节记得一定要设置
+
+11. r.history
+	a.默认情况下，requests会自动处理所有的除了head的重定向
+	b.查看重定向:r.history
+	allow_redirects=True:开启重定向
+	allow_redirects=False:关闭重定向
+	
+	
+requests模块高级用法：
+1. 获取服务器响应的头部信息：
+r.headers
+
+2.获取发送到服务器的头部信息
+r.request.headers
+
+3. 在请求中添加参数
+post(url,varify=false)
+忽略证书-常用在ssl证书出错时使用，
+也可以设置varify="证书路径"
+来获取证书
+
+4.方法：将请求中的json数据转换成python中的字典
+r.json()
+
+
+
+
+

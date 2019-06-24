@@ -1,0 +1,33 @@
+selenium模块
+1.等待页面加载完成
+slelnium提供了两种类型的waits-隐式和显示。非常不建议使用sleep
+常常使用WebDriverWait结合ExpecteCondition
+使用方法：
+
+显示调用：
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import exceted_conditions as EC
+
+driver = webdriver.FireFox()
+driver.get("htpp://somedomain/url")
+
+try:
+	element = WebDriverWait(driver,10).until(
+		EC.presence_of_element_located((By.ID,"myDynamicElement"))
+	)
+finally:
+	driver.quit()
+	
+
+隐式调用：
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+driver.implicitly_wait(10) # seconds
+driver.get("http://somedomain/url_that_delays_loading")
+myDynamicElement = driver.find_element_by_id("myDynamicElement")
+
+页面对象：
+将页面常用的方法进行封装，比如查看标题是否匹配、获取元素、点击某些按键等
