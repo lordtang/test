@@ -6,7 +6,7 @@ def send_test_html(msg):
     '''
     参数：需要发送的消息/html文件
     返回值：无
-    功能：向指定邮箱发送一篇纯文本邮件
+    功能：向指定邮箱发送一篇纯文本或者二进制html文件的邮件
     相关配置：请在config中修改相关配置参数
     注意：使用前请修改该函数的config参数，包括发送方，接收方，发送数据类型等参数
     '''
@@ -31,11 +31,8 @@ def send_test_html(msg):
     type_of_msg=config['type']
 
     msg = MIMEText(msg,type_of_msg,'utf-8')
-
-
     #发送邮箱地址
     msg['From'] = sender
-
     #收件箱地址
     msg['To'] = receiver
     #主题
