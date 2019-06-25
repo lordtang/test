@@ -1,0 +1,17 @@
+unittest学习
+使用方法：
+1.创建一个类，继承自unittest.TestCase
+2.定义一连串以test_开头的函数，这些函数就是测试用例
+3.调用unittest模块里面的属性来对测试内容进行判断
+4.创建mian,执行unittest.main()
+
+运行方法：
+	python -m unittest tests/test_something testClass.testMethof
+	
+	向查看更多细节，可以加上-v参数
+	python -m unittest -v test_module
+	
+
+	
+	
+
