@@ -22,6 +22,7 @@ class OperationJson(object):
 
         if type(json_data) == list:
             # 处理json是一个list的情况
+            # 最好的办法是使用递归，打游戏了，后面再说吧            
             for d in json_data:
                 for k,v in d.items():
                     if k==key:
